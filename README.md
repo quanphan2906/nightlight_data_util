@@ -12,7 +12,8 @@
 7. Modify the ```example.py``` to your usage, (there are instructions on how to do so in ```example.py```), and run it within the above conda environment (where you have downloaded pandas and qgis).
 8. The resulting csv file will be spitted out in the same directory as ```example.py```. Take the .csv file, move on with your project, and forget about this utility function. An example final .csv file can be found in ```nigeria_nightlight_data.csv```.
 
-_Note 1_: After step 5, if you have already had a separate folder for your project, and would like to work from there, copy the nightlight_data_util folder and the example.ipynb there, and continue with step 6. \
+_Note 1_: After step 5, if you have already had a separate folder for your project, and would like to work from there, copy the nightlight_data_util folder and the example.ipynb there, and continue with step 6.
+
 _Note 2_: Step 2 and 3 show you how to set up an Anaconda enviroment through command line or Anaconda prompt. There are other ways to set up such an environment, including using the Anaconda Navigator (a GUI software that comes with Anaconda). You're text editors (like PyCharm) may support creating Anaconda environment without having to interact with the command line. Please consult Google for these methods.
 
 Happy coding!
