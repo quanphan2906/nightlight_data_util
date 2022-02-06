@@ -10,10 +10,10 @@ Note: the raster files have been removed from the datasets folder due to file si
 Please add the raster files, and modify the below urls if necessary.
 '''
 raster_urls = {
-    'rade9': './datasets/HREA_Nigeria_2018_v1/Nigeria_rade9lnmu_2018.tif',
-    'lightscore': './datasets/HREA_Nigeria_2018_v1/Nigeria_set_lightscore_sy_2018.tif',
-    'prplit': './datasets/HREA_Nigeria_2018_v1/Nigeria_set_prplit_conf90_sy_2018.tif',
-    'zscore': './datasets/HREA_Nigeria_2018_v1/Nigeria_set_zscore_sy_2018.tif',
+    'rade9': './datasets/HREA_Nigeria_2015_v1/Nigeria_rade9lnmu_2015.tif',
+    'lightscore': './datasets/HREA_Nigeria_2015_v1/Nigeria_set_lightscore_sy_2015.tif',
+    'prplit': './datasets/HREA_Nigeria_2015_v1/Nigeria_set_prplit_conf90_sy_2015.tif',
+    'zscore': './datasets/HREA_Nigeria_2015_v1/Nigeria_set_zscore_sy_2015.tif',
 }
 
 '''
@@ -34,9 +34,9 @@ Execute the utility function with the necessary arguments:
 match_coords_w_nightlight_data(path_to_qgis="C:/OSGeo4W/apps/qgis-ltr",
                                radius=5000,  # in meters
                                segment=18,
-                               data_url="datasets/nga_householdgeovars_y4.csv",
+                               data_url="datasets/nga_householdgeovars_y3.csv",
                                id_col_name="hhid",
-                               lon_col_name="lon_dd_mod",
-                               lat_col_name="lat_dd_mod",
-                               destination_csv="nigeria_nightlight_data.csv",
+                               lon_col_name="LON_DD_MOD",
+                               lat_col_name="LAT_DD_MOD",
+                               destination_csv="nigeria_nightlight_data_2015.csv",
                                raster_urls=raster_urls)

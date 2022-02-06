@@ -31,4 +31,4 @@
     python name_of_the_file.py
     ```
 
-8. The resulting csv file will be spitted out in the same directory as example files.
+8. The result file(s) will be spitted out in the same directory as example files.

@@ -59,37 +59,41 @@ def match_coords_w_nightlight_data(
 
     count = 0
     for f in features:  # each feature is a point
-        attributes = f.attributes()
-        hhid = int(attributes[id_col_idx])
-        lat = float(attributes[lat_col_idx])
-        lon = float(attributes[lon_col_idx])
+        try:
+            attributes = f.attributes()
+            hhid = int(attributes[id_col_idx])
+            lat = float(attributes[lat_col_idx])
+            lon = float(attributes[lon_col_idx])
 
-        # Sets up projected CRS and transformer
-        local_azimuthal = QgsCoordinateReferenceSystem()
-        proj4_str = "+proj=aeqd +R=6371000 +units=m +lat_0={} +lon_0={}".format(
-            lat, lon)
-        local_azimuthal.createFromProj(proj4_str)
+            # Sets up projected CRS and transformer
+            local_azimuthal = QgsCoordinateReferenceSystem()
+            proj4_str = "+proj=aeqd +R=6371000 +units=m +lat_0={} +lon_0={}".format(
+                lat, lon)
+            local_azimuthal.createFromProj(proj4_str)
 
-        wgs84_to_azimuthal = QgsCoordinateTransform(
-            epsg4326, local_azimuthal, transformContext)
-        azimuthal_to_wgs84 = QgsCoordinateTransform(
-            local_azimuthal, epsg4326, transformContext)
+            wgs84_to_azimuthal = QgsCoordinateTransform(
+                epsg4326, local_azimuthal, transformContext)
+            azimuthal_to_wgs84 = QgsCoordinateTransform(
+                local_azimuthal, epsg4326, transformContext)
 
-        # Projects the point, creates buffer, and reprojects to original CRS
-        projected_point = wgs84_to_azimuthal.transform(QgsPointXY(lon, lat))
-        point_geom = QgsGeometry.fromPointXY(projected_point)
-        buffer = point_geom.buffer(radius, segment)
-        buffer.transform(azimuthal_to_wgs84)
+            # Projects the point, creates buffer, and reprojects to original CRS
+            projected_point = wgs84_to_azimuthal.transform(
+                QgsPointXY(lon, lat))
+            point_geom = QgsGeometry.fromPointXY(projected_point)
+            buffer = point_geom.buffer(radius, segment)
+            buffer.transform(azimuthal_to_wgs84)
 
-        # Writes buffer to file
-        fet = QgsFeature()
-        fet.setGeometry(buffer)
-        fet.setAttributes([hhid, lon, lat])
-        writer.addFeature(fet)
+            # Writes buffer to file
+            fet = QgsFeature()
+            fet.setGeometry(buffer)
+            fet.setAttributes([hhid, lon, lat])
+            writer.addFeature(fet)
 
-        count += 1
-        if count % 500 == 0:
-            print("{count} buffers created".format(count=count))
+            count += 1
+            if count % 500 == 0:
+                print("{count} buffers created".format(count=count))
+        except:
+            pass
 
     print("In total, {count} buffers created".format(count=count))
 
