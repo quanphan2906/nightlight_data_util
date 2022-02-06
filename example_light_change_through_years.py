@@ -28,10 +28,8 @@ raster_urls_18 = {
 
 '''
 Execute the utility function with the necessary arguments:
-- path_to_qgis: Absolute path to the QGIS application. In order to obtain this path, 
-                you must first download the QGIS software from here: 
-                https://qgis.org/en/site/forusers/download.html. 
-                Open the QGIS application, go to Plugins -> Python Console. 
+- path_to_qgis: Absolute path to the QGIS application. In order to obtain this path,
+                open the QGIS application, go to Plugins -> Python Console. 
                 Type ```QgsApplication.prefixPath()``` and hit enter. 
                 The output is the path to the QGIS application.
 - raster_urls_before: raster_urls of the earlier year of interest

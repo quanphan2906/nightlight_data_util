@@ -18,10 +18,8 @@ raster_urls = {
 
 '''
 Execute the utility function with the necessary arguments:
-- path_to_qgis: Absolute path to the QGIS application. In order to obtain this path, 
-                you must first download the QGIS software from here: 
-                https://qgis.org/en/site/forusers/download.html. 
-                Open the QGIS application, go to Plugins -> Python Console. 
+- path_to_qgis: Absolute path to the QGIS application. In order to obtain this path,
+                open the QGIS application, go to Plugins -> Python Console. 
                 Type ```QgsApplication.prefixPath()``` and hit enter. 
                 The output is the path to the QGIS application.
 - radius: The radius of each aggregated circles (in meters) (optional, default to 5000)
