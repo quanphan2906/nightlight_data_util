@@ -1,0 +1,7 @@
+name: nightlight_data_util
+channels:
+    - conda-forge
+dependencies:
+    - pandas
+    - qgis=3.18.3
+    - gdal=3.4.0

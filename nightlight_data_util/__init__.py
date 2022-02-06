@@ -1,1 +1,2 @@
-from .nightlight_data_util import match_coords_w_nightlight_data
+from .match_coords_nightlight_data import match_coords_w_nightlight_data
+from .light_change_through_years import light_change_through_years
